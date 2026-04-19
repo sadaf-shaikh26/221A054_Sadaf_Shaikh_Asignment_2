@@ -52,3 +52,36 @@ pred_svm = svm.predict(X_test_vec)
 
 print("\nSVM Results:")
 print(classification_report(y_test, pred_svm))
+
+
+import matplotlib.pyplot as plt
+
+# Model names
+models = ['Naive Bayes', 'Logistic Regression', 'SVM']
+
+# Accuracy values (from your output)
+accuracy = [0.65, 0.65, 0.45]
+
+# Precision (macro avg from your results)
+precision = [0.70, 0.77, 0.78]
+
+# Recall (macro avg)
+recall = [0.67, 0.67, 0.48]
+
+# Plot
+x = range(len(models))
+
+plt.figure(figsize=(8,5))
+
+plt.plot(x, accuracy, marker='o', label='Accuracy')
+plt.plot(x, precision, marker='o', label='Precision')
+plt.plot(x, recall, marker='o', label='Recall')
+
+plt.xticks(x, models)
+plt.title("Model Performance Comparison")
+plt.xlabel("Models")
+plt.ylabel("Score")
+plt.legend()
+plt.grid()
+
+plt.show()
